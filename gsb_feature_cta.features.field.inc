@@ -28,13 +28,15 @@ function gsb_feature_cta_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          'View' => 'View',
           'Explore our' => 'Explore our',
           'Learn about' => 'Learn about',
-          'Learn about becoming' => 'Learn about becoming',
           'Learn more' => 'Learn more',
           'See' => 'See',
-          'Contact' => 'Contact',
+          'View' => 'View',
+          'Apply' => 'Apply',
+          'Stay in touch' => 'Stay in touch',
+          'Attend' => 'Attend',
+          'Email' => 'Email',
         ),
         'allowed_values_function' => '',
       ),
@@ -45,7 +47,7 @@ function gsb_feature_cta_field_default_fields() {
       'bundle' => 'field_cta_item',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'If you choose "Contact" style will be ignored.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -79,7 +81,7 @@ function gsb_feature_cta_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '0',
+        'weight' => 0,
       ),
       'workbench_access_field' => 0,
     ),
@@ -324,6 +326,7 @@ function gsb_feature_cta_field_default_fields() {
         'allowed_values' => array(
           'cta-green' => 'Green',
           'cta-red' => 'Red',
+          'cta-red-gradient' => 'Red gradient',
         ),
         'allowed_values_function' => '',
       ),
@@ -390,7 +393,6 @@ function gsb_feature_cta_field_default_fields() {
   t('CTA Item');
   t('Destination Link');
   t('Destination Text');
-  t('If you choose "Contact" style will be ignored.');
   t('Style');
 
   return $fields;
