@@ -72,7 +72,7 @@ function gsb_feature_cta_field_default_fields() {
       'entity_type' => 'field_collection_item',
       'field_name' => 'field_cta_action',
       'label' => 'Action',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
@@ -145,7 +145,7 @@ function gsb_feature_cta_field_default_fields() {
       'entity_type' => 'field_collection_item',
       'field_name' => 'field_cta_destination',
       'label' => 'Destination Text',
-      'required' => 1,
+      'required' => 0,
       'settings' => array(
         'linkit' => array(
           'enable' => 0,
