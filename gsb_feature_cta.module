@@ -21,7 +21,7 @@ function gsb_feature_cta_entity_info_alter(&$entity_info) {
       'path' => 'admin/structure/fieldable-panels-panes/manage/%fieldable_panels_panes_type',
       'bundle argument' => 10,
       // Note that this has all _ replaced with - from the bundle name.
-      'real path' => 'admin/structure/fieldable-panels-panes/manage/gsb-cta',
+      'real path' => 'admin/structure/fieldable-panels-panes/manage/cta',
       'access arguments' => array('administer fieldable panels panes'),
     ),
   );

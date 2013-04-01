@@ -185,8 +185,8 @@ function gsb_feature_cta_field_default_fields() {
     ),
   );
 
-  // Exported field: 'fieldable_panels_pane-gsb_cta-field_cta_item'.
-  $fields['fieldable_panels_pane-gsb_cta-field_cta_item'] = array(
+  // Exported field: 'fieldable_panels_pane-cta-field_cta_item'.
+  $fields['fieldable_panels_pane-cta-field_cta_item'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
@@ -205,7 +205,7 @@ function gsb_feature_cta_field_default_fields() {
       'type' => 'field_collection',
     ),
     'field_instance' => array(
-      'bundle' => 'gsb_cta',
+      'bundle' => 'cta',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -244,8 +244,8 @@ function gsb_feature_cta_field_default_fields() {
     ),
   );
 
-  // Exported field: 'fieldable_panels_pane-gsb_cta-field_cta_style'.
-  $fields['fieldable_panels_pane-gsb_cta-field_cta_style'] = array(
+  // Exported field: 'fieldable_panels_pane-cta-field_cta_style'.
+  $fields['fieldable_panels_pane-cta-field_cta_style'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -272,7 +272,7 @@ function gsb_feature_cta_field_default_fields() {
       'type' => 'list_text',
     ),
     'field_instance' => array(
-      'bundle' => 'gsb_cta',
+      'bundle' => 'cta',
       'default_value' => array(
         0 => array(
           'value' => 'cta-red',
