@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Code for the GSB Feature CTA feature.
@@ -10,7 +11,6 @@ include_once 'gsb_feature_cta.features.inc';
 /**
  * Implements hook_entity_info_alter().
  */
-
 function gsb_feature_cta_entity_info_alter(&$entity_info) {
   $entity_info['fieldable_panels_pane']['bundles']['cta'] = array(
     'label' => t('CTA'),
@@ -30,49 +30,70 @@ function gsb_feature_cta_entity_info_alter(&$entity_info) {
 // Formatter
 
 /**
- * Implementation of hook_field_formatter_info().
+ * Implements hook_field_formatter_info().
  *
  * Here we tell Drupal about our custom field formatter -
  * 'gsb_slideshow_default_format'.
- *
  */
 function gsb_feature_cta_field_formatter_info() {
-    return array(
-        'gsb_cta_default_format' => array(
-            'label' => t('Field Collection CTA'),
-            'field types' => array('field_collection'),
-            'settings' => array('view_mode' => 'full'),
-        ),
-    );
+  return array(
+    'gsb_cta_default_format' => array(
+      'label' => t('Field Collection CTA'),
+      'field types' => array('field_collection'),
+      'settings' => array('view_mode' => 'full'),
+    ),
+  );
 }
 
 /**
  * Implements hook_field_formatter_view().
  */
 function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
 
-    $element = array();
+  // Get a metadata wrapper for the entity.
+  $wrapper = entity_metadata_wrapper($entity_type, $entity);
+  // Determine the CTA style and corresponding style class.
+  $style = $wrapper->field_cta_style->value();
+  $style_class = $style == 'cta-red-gradient' ? 'separated-box' : 'designed-box';
 
-    $settings = $display['settings'];
-
-    $style = $entity->field_cta_style['und'][0]['value'];
-    if ($style == 'cta-red-gradient')
-        $style_class = 'separated-box';
-    else
-        $style_class = 'designed-box';
-
-    $element[0]['#markup'] = '';
-    foreach ($items as $delta => $item_data) {
-        if ($delta == 0)
-            $element[0]['#markup'] = '<div class="cta-wrapper ' . $style_class . '">';
-        if ($field_collection = entity_metadata_wrapper('field_collection_item', $item_data['value'])) {
-            $element[0]['#markup'] .= '<a href="' . $field_collection->field_link_single->get('url')->value() . '" class="item-' . $delta . ' ' . $style . ' cta-link">';
-            $element[0]['#markup'] .= '<span>' . $field_collection->field_cta_action->value() . '</span>';
-            $element[0]['#markup'] .= '<b>' . $field_collection->field_link_single->get('title')->value() . '</b><i></i>';
-            $element[0]['#markup'] .= '</a>';
-        }
-        if ($delta == count($items) - 1)
-            $element[0]['#markup'] .= '</div>';
+  // Build a container for the items.
+  if (!empty($items)) {
+    $element[0] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array(
+          'cta-wrapper',
+          $style_class,
+        ),
+      ),
+    );
+  }
+  // Loop through each item, adding a link.
+  foreach (array_keys($items) as $delta) {
+    if ($field_collection = $wrapper->field_cta_item->get($delta)) {
+      // Build up a link title with the structure of <span>ACTION</span><b>TITLE</b><i></i>
+      $title = '';
+      $title .= '<span>' . $field_collection->field_cta_action->value() . '</span>';
+      $title .= '<b>' . $field_collection->field_link_single->title->value() . '</b>';
+      $title .= '<i></i>';
+      // Add a link render array, allowing HTML in the title.
+      $element[0][$delta] = array(
+        '#type' => 'link',
+        '#href' => $field_collection->field_link_single->url->value(),
+        '#title' => $title,
+        '#options' => array(
+          'html' => TRUE,
+        ),
+        '#attributes' => array(
+          'class' => array(
+            "item-$delta",
+            $style,
+            'cta-link',
+          ),
+        ),
+      );
     }
-    return $element;
+  }
+  return $element;
 }
