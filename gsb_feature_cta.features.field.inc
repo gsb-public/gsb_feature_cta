@@ -52,7 +52,9 @@ function gsb_feature_cta_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'list',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'list_default',
           'weight' => 1,
         ),
@@ -128,7 +130,9 @@ function gsb_feature_cta_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'link',
-          'settings' => array(),
+          'settings' => array(
+            'conditions' => array(),
+          ),
           'type' => 'link_default',
           'weight' => 2,
         ),
@@ -212,12 +216,13 @@ function gsb_feature_cta_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'module' => 'field_collection',
+          'module' => 'gsb_feature_cta',
           'settings' => array(
+            'conditions' => array(),
             'view_mode' => 'full',
           ),
-          'type' => 'field_collection_fields',
-          'weight' => '4',
+          'type' => 'gsb_cta_default_format',
+          'weight' => '0',
         ),
         'ical' => array(
           'label' => 'above',
@@ -283,10 +288,9 @@ function gsb_feature_cta_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_key',
-          'weight' => '3',
+          'type' => 'hidden',
+          'weight' => '1',
         ),
         'ical' => array(
           'label' => 'above',
