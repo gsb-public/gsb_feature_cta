@@ -97,3 +97,22 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
   }
   return $element;
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function gsb_feature_cta_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form' &&
+      isset($form['#bundle']) && $form['#bundle'] == 'cta') {
+    $form['#validate'][] = "gsb_feature_cta_validate";
+  }
+}
+
+function gsb_feature_cta_validate($form, &$form_state) {
+  if (isset($form['#bundle']) && $form['#bundle'] == 'cta') {
+    $value = $form_state['values']['field_cta_item']['und'][0]['field_cta_action']['und'][0]['value'];
+    if ($value == null) {
+      form_set_error('field_cta_item][und][0][field_cta_action', t('Please select an action.'));
+    }
+  }
+}
