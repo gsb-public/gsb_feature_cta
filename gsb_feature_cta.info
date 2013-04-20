@@ -22,3 +22,10 @@ features[field_instance][] = fieldable_panels_pane-cta-field_cta_item
 features[field_instance][] = fieldable_panels_pane-cta-field_cta_style
 features[variable][] = field_bundle_settings_field_collection_item__field_cta_item
 features[variable][] = field_bundle_settings_fieldable_panels_pane__cta
+
+
+; Information added by drush on 2013-04-19
+version = "master-dev"
+project = "gsb_feature_cta"
+datestamp = "1366435809"
+

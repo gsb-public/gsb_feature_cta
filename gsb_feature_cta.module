@@ -74,7 +74,7 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
     if ($field_collection = $wrapper->field_cta_item->get($delta)) {
       // Build up a link title with the structure of <span>ACTION</span><b>TITLE</b><i></i>
       $title = '';
-      $title .= '<span>' . $field_collection->field_cta_action->value() . '</span>';
+      $title .= '<span>' . $field_collection->field_cta_action->label() . '</span>';
       $title .= '<b>' . $field_collection->field_link_single->title->value() . '</b>';
       $title .= '<i></i>';
       // Add a link render array, allowing HTML in the title.
