@@ -55,11 +55,11 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
   $wrapper = entity_metadata_wrapper($entity_type, $entity);
   // Determine the CTA style and corresponding style class.
   $style = $wrapper->field_cta_style->value();
-  $style_class = $style == 'cta-red-gradient' ? 'separated-box' : 'designed-box';
+  $style_class = $style == 'cta-green' ? 'designed-box' : 'separated-box';
 
   // Build a container for the items.
   if (!empty($items)) {
-    $element[0] = array(
+    $element = array(
       '#type' => 'container',
       '#attributes' => array(
         'class' => array(
@@ -70,7 +70,7 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
     );
   }
   // Loop through each item, adding a link.
-  foreach (array_keys($items) as $delta) {
+  foreach ($items as $delta => $item) {
     if ($field_collection = $wrapper->field_cta_item->get($delta)) {
       // Build up a link title with the structure of <span>ACTION</span><b>TITLE</b><i></i>
       $title = '';
@@ -78,7 +78,7 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
       $title .= '<b>' . $field_collection->field_link_single->title->value() . '</b>';
       $title .= '<i></i>';
       // Add a link render array, allowing HTML in the title.
-      $element[0][$delta] = array(
+      $element[$delta] = array(
         '#type' => 'link',
         '#href' => $field_collection->field_link_single->url->value(),
         '#title' => $title,
