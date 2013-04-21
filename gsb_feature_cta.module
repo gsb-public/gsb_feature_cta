@@ -65,6 +65,7 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
         'class' => array(
           'cta-wrapper',
           $style_class,
+          $style,
         ),
       ),
     );
@@ -88,7 +89,6 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
         '#attributes' => array(
           'class' => array(
             "item-$delta",
-            $style,
             'cta-link',
           ),
         ),
