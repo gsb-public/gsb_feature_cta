@@ -110,9 +110,14 @@ function gsb_feature_cta_form_alter(&$form, &$form_state, $form_id) {
 
 function gsb_feature_cta_validate($form, &$form_state) {
   if (isset($form['#bundle']) && $form['#bundle'] == 'cta') {
-    $value = $form_state['values']['field_cta_item']['und'][0]['field_cta_action']['und'][0]['value'];
-    if ($value == null) {
-      form_set_error('field_cta_item][und][0][field_cta_action', t('Please select an action.'));
+    $language = $form['language']['#value'];    
+    foreach ($form_state['values']['field_cta_item'][$language] as $index => $data) {
+      if (is_integer($index)) {
+        $value = $form_state['values']['field_cta_item'][$language][$index]['field_cta_action'][$language][0]['value'];
+        if ($value == null) {
+          form_set_error('field_cta_item][' . $language . '][' . $index . '][field_cta_action', t('Please select an action.'));
+        }
+      }
     }
   }
 }
