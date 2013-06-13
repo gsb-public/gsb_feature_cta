@@ -175,7 +175,7 @@ function gsb_feature_cta_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => -3,
     ),
     'workbench_access_field' => 0,
   );
@@ -228,7 +228,7 @@ function gsb_feature_cta_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 2,
+      'weight' => -4,
     ),
     'workbench_access_field' => 0,
   );
