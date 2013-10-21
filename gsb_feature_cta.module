@@ -91,7 +91,7 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
             "item-$delta",
             'cta-link',
           ),
-        ),
+        ) + $field_collection->field_link_single->attributes->value(),
       );
     }
   }
