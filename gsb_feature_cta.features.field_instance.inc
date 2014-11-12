@@ -10,6 +10,48 @@
 function gsb_feature_cta_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'field_collection_item-field_cta_item-field_cta_action_item'
+  $field_instances['field_collection_item-field_cta_item-field_cta_action_item'] = array(
+    'bundle' => 'field_cta_item',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(
+          'conditions' => array(),
+        ),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 3,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_cta_action_item',
+    'label' => 'CTA Action',
+    'required' => 1,
+    'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'use_hierarchical_select_lite' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+    'workbench_access_field' => 0,
+  );
+
   // Exported field_instance: 'field_collection_item-field_cta_item-field_link_single'
   $field_instances['field_collection_item-field_cta_item-field_link_single'] = array(
     'bundle' => 'field_cta_item',
@@ -92,54 +134,6 @@ function gsb_feature_cta_field_default_field_instances() {
       ),
       'type' => 'link_field',
       'weight' => 1,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance: 'fieldable_panels_pane-cta-field_cta_action_item'
-  $field_instances['fieldable_panels_pane-cta-field_cta_action_item'] = array(
-    'bundle' => 'cta',
-    'custom_add_another' => '',
-    'custom_remove' => '',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(
-          'conditions' => array(),
-        ),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 2,
-      ),
-      'ical' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'fieldable_panels_pane',
-    'field_name' => 'field_cta_action_item',
-    'label' => 'CTA Action',
-    'required' => 1,
-    'settings' => array(
-      'custom_add_another' => '',
-      'custom_remove' => '',
-      'use_hierarchical_select_lite' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'options_select',
-      'weight' => 2,
     ),
     'workbench_access_field' => 0,
   );
