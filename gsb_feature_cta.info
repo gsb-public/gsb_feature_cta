@@ -1,5 +1,5 @@
 name = GSB Feature CTA
-description = Call to Action feature
+description = Call to Action Feature
 core = 7.x
 package = GSB
 version = 7.x-3.01
