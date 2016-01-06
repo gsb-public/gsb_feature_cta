@@ -74,23 +74,27 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
     if ($field_collection = $wrapper->field_cta_item->get($delta)) {
       // Build up a link title with the structure of <span>ACTION</span><b>TITLE</b>
       $title = '';
-      $title .= '<span>' . $field_collection->field_cta_action_item->label() . '</span>';
-      $title .= '<b>' . $field_collection->field_link_single->title->value() . '</b>';
-      // Add a link render array, allowing HTML in the title.
-      $element[$delta] = array(
-        '#type' => 'link',
-        '#href' => $field_collection->field_link_single->url->value(),
-        '#title' => $title,
-        '#options' => array(
-          'html' => TRUE,
-        ),
-        '#attributes' => array(
-          'class' => array(
-            "item-$delta",
-            'cta-link',
+      try {
+        $title .= '<span>' . $field_collection->field_cta_action_item->label() . '</span>';
+        $title .= '<b>' . $field_collection->field_link_single->title->value() . '</b>';
+      } catch (Exception $e) {
+        continue;
+      }
+        // Add a link render array, allowing HTML in the title.
+        $element[$delta] = array(
+          '#type' => 'link',
+          '#href' => $field_collection->field_link_single->url->value(),
+          '#title' => $title,
+          '#options' => array(
+            'html' => TRUE,
           ),
-        ) + $field_collection->field_link_single->attributes->value(),
-      );
+          '#attributes' => array(
+              'class' => array(
+                "item-$delta",
+                'cta-link',
+              ),
+            ) + $field_collection->field_link_single->attributes->value(),
+        );
     }
   }
   return $element;
