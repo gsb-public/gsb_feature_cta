@@ -100,7 +100,7 @@ function gsb_feature_cta_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_link_single',
     'label' => 'Destination',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'attributes' => array(
         'class' => '',
@@ -124,7 +124,7 @@ function gsb_feature_cta_field_default_field_instances() {
       'title_value' => '',
       'url' => 0,
       'user_register_form' => FALSE,
-      'validate_url' => 1,
+      'validate_url' => 0,
     ),
     'widget' => array(
       'active' => 0,
