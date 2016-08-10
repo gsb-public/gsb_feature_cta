@@ -78,13 +78,19 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
       } catch (Exception $e) {
         continue;
       }
+
+      //parse url and pass query as an option to fix url encoding resulting broken links
+      $url_parts = drupal_parse_url($field_collection->field_link_single->url->value());
+
         // Add a link render array, allowing HTML in the title.
         $element[$delta] = array(
           '#type' => 'link',
-          '#href' => $field_collection->field_link_single->url->value(),
+          //'#href' => $field_collection->field_link_single->url->value(),
+          '#href' => $url_parts['path'],
           '#title' => $title,
           '#options' => array(
             'html' => TRUE,
+            'query' => (!empty($url_parts['query']) ? $url_parts['query'] : '') ,
           ),
           '#attributes' => array(
               'class' => array(
@@ -95,6 +101,7 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
         );
     }
   }
+
   return $element;
 }
 
