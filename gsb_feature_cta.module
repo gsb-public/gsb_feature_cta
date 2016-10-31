@@ -87,7 +87,6 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
         $decoded_url_parts = explode( '?' , $decoded_url);
         $query_parts = explode('&' ,$decoded_url_parts[1]);
         foreach($query_parts as $str) {
-          ;
           $query_params = explode('=' , $str);
           $query_arr[$query_params[0]] = $query_params[1];
         }
