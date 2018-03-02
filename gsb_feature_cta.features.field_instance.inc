@@ -10,7 +10,8 @@
 function gsb_feature_cta_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_cta_item-field_cta_action_item'
+  // Exported field_instance:
+  // 'field_collection_item-field_cta_item-field_cta_action_item'.
   $field_instances['field_collection_item-field_cta_item-field_cta_action_item'] = array(
     'bundle' => 'field_cta_item',
     'custom_add_another' => '',
@@ -52,7 +53,8 @@ function gsb_feature_cta_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'field_collection_item-field_cta_item-field_link_single'
+  // Exported field_instance:
+  // 'field_collection_item-field_cta_item-field_link_single'.
   $field_instances['field_collection_item-field_cta_item-field_link_single'] = array(
     'bundle' => 'field_cta_item',
     'default_value' => NULL,
@@ -102,6 +104,7 @@ function gsb_feature_cta_field_default_field_instances() {
     'label' => 'Destination',
     'required' => 1,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -120,6 +123,7 @@ function gsb_feature_cta_field_default_field_instances() {
         'insert_plugin' => '',
       ),
       'title' => 'optional',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -138,7 +142,7 @@ function gsb_feature_cta_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'fieldable_panels_pane-cta-field_cta_item'
+  // Exported field_instance: 'fieldable_panels_pane-cta-field_cta_item'.
   $field_instances['fieldable_panels_pane-cta-field_cta_item'] = array(
     'bundle' => 'cta',
     'default_value' => NULL,
@@ -191,7 +195,7 @@ function gsb_feature_cta_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'fieldable_panels_pane-cta-field_cta_style'
+  // Exported field_instance: 'fieldable_panels_pane-cta-field_cta_style'.
   $field_instances['fieldable_panels_pane-cta-field_cta_style'] = array(
     'bundle' => 'cta',
     'default_value' => array(
