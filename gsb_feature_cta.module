@@ -82,7 +82,7 @@ function gsb_feature_cta_field_formatter_view($entity_type, $entity, $field, $in
       //parse url and pass query as an option to fix url encoding resulting broken links
       $url_parts = drupal_parse_url($field_collection->field_link_single->url->value());
       $decoded_url = urldecode($field_collection->field_link_single->url->value());
-      $query_arr[] = '';
+      $query_arr = [];
       if (strpos($decoded_url, '[]') !== false) {
         $decoded_url_parts = explode( '?' , $decoded_url);
         $query_parts = explode('&' ,$decoded_url_parts[1]);
